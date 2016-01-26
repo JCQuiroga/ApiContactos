@@ -18,6 +18,18 @@ namespace ApiContactos.Controllers
 
 
         [ResponseType(typeof(UsuarioModel))]
+        public IHttpActionResult Get()
+        {
+            return Ok(UsuarioRepositorio.Get());
+        }
+
+        [ResponseType(typeof(UsuarioModel))]
+        public IHttpActionResult Get(int id)
+        {
+            return Ok(UsuarioRepositorio.Get(id));
+        }
+
+        [ResponseType(typeof(UsuarioModel))]
         public IHttpActionResult GetValido(string login, string password)
         {
             var data = UsuarioRepositorio.Validar(login, password);
@@ -44,7 +56,7 @@ namespace ApiContactos.Controllers
         public IHttpActionResult Put(int id, UsuarioModel model)
         {
             var d = UsuarioRepositorio.Get(id);
-            if (d == null || d.id!=model.id) return NotFound();
+            if (d == null || d.id != model.id) return NotFound();
             var data = UsuarioRepositorio.Update(model);
             if (data < 1) return BadRequest();
             return Ok();
