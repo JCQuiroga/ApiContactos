@@ -20,6 +20,8 @@ namespace ApiContactos
 
             container.RegisterType<DbContext, RedContactosEntities>();
             container.RegisterType<UsuarioRepositorio>(); 
+            container.RegisterType<MensajeRepositorio>(); 
+            container.RegisterType<ContactoRepositorio>(); 
 
             
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
