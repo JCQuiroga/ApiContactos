@@ -23,7 +23,7 @@ namespace RepositorioAdapter.Adapter
             {
             retorno.Add(FromModel(entity));
             }
-            return retorno;
+            return retorno; //kkkkk
             */
 
         }
