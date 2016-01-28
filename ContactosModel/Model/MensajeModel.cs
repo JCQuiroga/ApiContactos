@@ -1,4 +1,6 @@
-﻿namespace ContactosModel.Model
+﻿using System;
+
+namespace ContactosModel.Model
 {
     public class MensajeModel
     {
@@ -9,5 +11,12 @@
         public string contenido { get; set; }
         public bool leido { get; set; }
         public System.DateTime fecha { get; set; }
+
+        public string Estado
+        {
+            get { return leido ? "Leido" : "Sin leer"; }
+        }
+
+        
     }
 }
