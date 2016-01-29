@@ -35,7 +35,7 @@ namespace ApiContactos.Repositorios
         public ICollection<ContactoModel> GetNoContactosByOrigen(int id)
         {
             var data = DbSet.Find(id).Amigo.Select(o=>o.id);
-            var nocont = DbSet.Where(o=>!data.Contains(o.id));
+            var nocont = DbSet.Where(o=>!data.Contains(o.id) && o.id!=id);
             var ret = new List<ContactoModel>();
             foreach (var usuario in nocont)
             {
